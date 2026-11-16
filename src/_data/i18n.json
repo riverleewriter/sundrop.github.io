@@ -1,0 +1,72 @@
+{
+  "en": {
+    "locale": "en-CA",
+    "home": "/",
+    "homeTitle": "SUNDROP",
+    "skip": "Skip to content",
+    "homeLabel": "SUNDROP home",
+    "navLabel": "Primary",
+    "nav": [
+      {
+        "label": "About",
+        "url": "/about/"
+      },
+      {
+        "label": "Book a Gig",
+        "url": "/book/"
+      },
+      {
+        "label": "Get Involved",
+        "url": "/get-involved/"
+      }
+    ],
+    "switchLabel": "FR",
+    "switchName": "Version française",
+    "switchLang": "fr",
+    "footer": "Montreal",
+    "poster": "Poster for",
+    "hostedBy": "hosted by ",
+    "tickets": "Tickets",
+    "nextShow": "Next show",
+    "colon": ": ",
+    "hero": "Find your crowd",
+    "nextSoon": "Lineup drops soon.",
+    "followPre": "Follow",
+    "followPost": "to hear first."
+  },
+  "fr": {
+    "locale": "fr-CA",
+    "home": "/fr/",
+    "homeTitle": "SUNDROP",
+    "skip": "Aller au contenu",
+    "homeLabel": "Accueil SUNDROP",
+    "navLabel": "Principal",
+    "nav": [
+      {
+        "label": "À propos",
+        "url": "/fr/a-propos/"
+      },
+      {
+        "label": "Jouer avec nous",
+        "url": "/fr/jouer/"
+      },
+      {
+        "label": "S’impliquer",
+        "url": "/fr/simpliquer/"
+      }
+    ],
+    "switchLabel": "EN",
+    "switchName": "English version",
+    "switchLang": "en",
+    "footer": "Montréal",
+    "poster": "Affiche du spectacle",
+    "hostedBy": "animation : ",
+    "tickets": "Billets",
+    "nextShow": "Prochain spectacle",
+    "colon": " : ",
+    "hero": "Trouve ton monde",
+    "nextSoon": "La programmation arrive bientôt.",
+    "followPre": "Suis",
+    "followPost": "pour le savoir en premier."
+  }
+}

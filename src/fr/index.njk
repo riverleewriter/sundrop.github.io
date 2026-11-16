@@ -1,0 +1,46 @@
+---
+layout: base.njk
+title: null
+altUrl: /
+permalink: /fr/
+description: "SUNDROP organise des concerts à Montréal : matinées punk, soirées folk et jazz, lectures de poésie et bien plus encore. Achète tes billets ou postule pour monter sur scène."
+---
+<section class="hero">
+  <div class="hero-text">
+    {% include "hero-title.njk" %}
+    <p class="hero-tagline">Des matinées punk, des soirées folk et jazz, de la poésie sur fond de rythme. SUNDROP fait jouer des musiciens montréalais devant un public venu pour les écouter.</p>
+    <p class="cta">
+      <a class="button" href="{{ events.tickets }}" rel="noopener">Acheter des billets</a>
+      <a class="button button-ghost" href="/fr/jouer/">Jouer avec nous</a>
+    </p>
+  </div>
+</section>
+
+<section class="wall">
+  <h2>Spectacles</h2>
+  <ul class="gallery">
+    {%- for e in events.upcoming %}{% include "poster.njk" %}{% endfor %}
+    {%- for e in events.past %}{% include "poster.njk" %}{% endfor %}
+    {%- if not events.upcoming.length %}
+    {% include "next-card.njk" %}
+    {%- endif %}
+  </ul>
+</section>
+
+<section class="paths">
+  <div>
+    <h2>Venir à un spectacle</h2>
+    <p>Clique sur l’affiche du spectacle pour acheter ton billet. Réserve le tien sur Bloom avant que la salle ne soit complète.</p>
+    <p><a href="{{ events.tickets }}" rel="noopener">Voir les prochains spectacles</a></p>
+  </div>
+  <div>
+    <h2>Jouer avec nous</h2>
+    <p>Tu veux décrocher un concert&nbsp;? Envoie-nous un lien vers ta musique et on te trouvera une affiche qui te correspond.</p>
+    <p><a href="/fr/jouer/">Proposer ta musique</a></p>
+  </div>
+  <div>
+    <h2>Donner un coup de main</h2>
+    <p>On a toujours besoin d’un coup de main. Chaque bénévole a droit à une place gratuite pour un spectacle.</p>
+    <p><a href="/fr/simpliquer/">S’impliquer</a></p>
+  </div>
+</section>

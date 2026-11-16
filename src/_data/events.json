@@ -1,0 +1,35 @@
+{
+  "past": [
+    {
+      "title": "A Poetry Punk Matinee",
+      "date": "2026-10-10",
+      "venue": "Turbo Haüs",
+      "img": "/img/poster-3023-sm.jpg",
+      "url": "https://SUNDROP.bloomtickets.ca/event/3023",
+      "lineup": "Double Dog Dare & Cicada",
+      "price": "$13 adv, $15 door",
+      "host": "Abraxia"
+    },
+    {
+      "title": "Latin Live! Folklore & Jazz",
+      "date": "2026-09-26",
+      "venue": "La Feuille Verte Cafe",
+      "img": "/img/poster-3030-sm.jpg",
+      "url": "https://SUNDROP.bloomtickets.ca/event/3030",
+      "lineup": "River Lee, Sanhauá en Duo, Joanna & Friends",
+      "price": "PWYC $5–$15"
+    }
+  ],
+  "upcoming": [
+    {
+      "title": "Cinnamon & Strings",
+      "date": "2026-11-29",
+      "venue": "La Feuille Verte Cafe",
+      "img": "/img/poster-4942-sm.jpg",
+      "url": "https://SUNDROP.bloomtickets.ca/event/4942",
+      "lineup": "Kit and Baj, Gaëlle, Uñas Escondidas",
+      "price": "PWYC $10 cash, $11 card"
+    }
+  ],
+  "tickets": "https://SUNDROP.bloomtickets.ca/hostinfo/2555"
+}

@@ -1,0 +1,3 @@
+{%- set t = i18n[lang] -%}
+{#- Headline split into words so each can rise in on load (see "rise" in style.css). -#}
+<h1 class="hero-name">{% for w in t.hero.split(" ") %}<span style="--i:{{ loop.index0 }}">{{ w }}</span> {% endfor %}</h1>

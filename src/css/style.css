@@ -1,0 +1,668 @@
+/* ---- Fonts (self-hosted, latin subset, variable weight) ---- */
+@font-face {
+  font-family: "Big Shoulders Display";
+  src: url("/fonts/big-shoulders-display.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("/fonts/instrument-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* ---- Tokens ----
+   Palette pulled from the stage photo (hero.jpg): indigo dark, "SUNDROP" yellow light. */
+:root {
+  --ink: #17112e; /* page ground */
+  --dusk: #241b45; /* raised surfaces, rules */
+  --paper: #f3eee4; /* text */
+  --haze: #b9b0d2; /* secondary text */
+  --sun: #f4e53e; /* hsl(55 89% 60%) */ /* the one accent */
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font: "Instrument Sans", system-ui, sans-serif;
+  --measure: 40rem;
+  --wide: 72rem;
+  --pad: clamp(1rem, 4vw, 2.5rem);
+  color-scheme: dark;
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  color: inherit;
+  text-decoration-color: var(--sun);
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--sun);
+}
+:focus-visible {
+  outline: 2px solid var(--sun);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+}
+.skip-link:focus {
+  left: var(--pad);
+  top: 0.5rem;
+  background: var(--sun);
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  z-index: 10;
+}
+
+/* ---- Header / nav ---- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  padding: 1.5rem var(--pad);
+  max-width: var(--wide);
+  width: 100%;
+  margin: 0 auto;
+}
+/* The "drop": a small sun disc before the wordmark. */
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 1.75rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+.wordmark::before {
+  content: "";
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  background: var(--sun);
+  box-shadow: 0 0 18px rgba(244, 229, 62, 0.55);
+}
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.site-nav a {
+  text-decoration: none;
+  color: var(--haze);
+}
+.site-nav a:hover {
+  color: var(--paper);
+}
+.site-nav a[aria-current="page"] {
+  color: var(--paper);
+  text-decoration: underline;
+  text-decoration-color: var(--sun);
+  text-decoration-thickness: 2px;
+}
+
+/* ---- Main ---- */
+.site-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 0.5rem var(--pad) 5rem;
+}
+h1,
+h2 {
+  font-family: var(--display);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+.prose {
+  max-width: var(--measure);
+  margin: 0 auto;
+}
+.prose h1 {
+  font-size: clamp(3rem, 2rem + 5vw, 5rem);
+  margin: 1.5rem 0 1.5rem;
+}
+.prose h2 {
+  font-size: 2rem;
+  margin: 3rem 0 1rem;
+}
+.prose p {
+  margin: 0 0 1.1rem;
+}
+.prose ul {
+  padding-left: 1.2rem;
+}
+.lede {
+  font-size: 1.2em;
+  color: var(--paper);
+}
+
+/* ---- Home: hero ----
+   Text sits on the dark right side of the photo; the mic stays visible on the left. */
+.hero {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: min(78vh, 46rem);
+  padding: clamp(1.5rem, 5vw, 4rem);
+  background:
+    linear-gradient(90deg, rgba(23, 17, 46, 0) 30%, rgba(23, 17, 46, 0.75) 75%),
+    linear-gradient(0deg, rgba(23, 17, 46, 0.9), rgba(23, 17, 46, 0) 45%),
+    url("/img/hero-1600.jpg") 30% center / cover no-repeat;
+  border-radius: 6px;
+}
+/* Landscape screens: zoom the photo so the mic sits ~25% across, clear of the one-line headline.
+   Only here is the zoomed image guaranteed to be taller than the hero. */
+@media (min-width: 40.01rem) and (min-aspect-ratio: 1/1) {
+  .hero {
+    background-position:
+      0 0,
+      0 0,
+      100% 45%;
+    background-size:
+      auto,
+      auto,
+      145% auto;
+  }
+}
+.hero-text {
+  max-width: 39rem;
+}
+.hero-name {
+  font-size: clamp(3.25rem, 1.5rem + 4.4vw, 5rem);
+  line-height: 0.9;
+  text-wrap: balance;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+.hero-tagline {
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.25rem);
+  color: var(--paper);
+  margin: 0;
+  text-wrap: pretty;
+}
+.hero .cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 2rem 0 0;
+}
+@media (max-width: 40rem) {
+  .hero {
+    min-height: 34rem;
+    background:
+      linear-gradient(0deg, rgba(23, 17, 46, 0.95) 35%, rgba(23, 17, 46, 0.1)),
+      url("/img/hero-900.jpg") 35% center / cover no-repeat;
+  }
+}
+
+/* ---- Buttons ---- */
+.button {
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--sun);
+  border-radius: 999px;
+  background: var(--sun);
+  color: var(--ink);
+  text-decoration: none;
+}
+.button:hover {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+.button-ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--paper);
+}
+.cta {
+  margin-top: 2.5rem;
+}
+.prose .cta {
+  margin: 2rem 0 1rem;
+}
+.fine {
+  font-size: 0.9rem;
+  color: var(--haze);
+}
+
+/* ---- Posters ---- */
+.wall h2,
+.paths h2 {
+  font-size: 2rem;
+  margin: 0 0 1.25rem;
+}
+.gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  gap: 1.5rem;
+}
+.prose .gallery {
+  padding: 0;
+  margin-block: 1.5rem;
+}
+.gallery a {
+  display: block;
+  text-decoration: none;
+}
+.gallery img,
+.photo-placeholder {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  object-fit: cover;
+  background: var(--dusk);
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+}
+.gallery strong {
+  display: block;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.gallery span {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--haze);
+}
+.gallery .lineup {
+  color: var(--paper);
+}
+
+/* ---- Home: the flyer wall ----
+   Full-bleed paper band with torn edges and photocopy grain; posters hung straight. */
+.wall {
+  --paper-ink: #1d1830;
+  position: relative;
+  margin: 3.5rem calc(50% - 50vw) 0;
+  padding: 5rem max(var(--pad), calc(50vw - var(--wide) / 2 + var(--pad)))
+    5.5rem;
+  background-color: var(--paper);
+  color: var(--paper-ink);
+  clip-path: polygon(
+    0% 2.2rem,
+    1.8% 0.24rem,
+    4.3% 0.12rem,
+    6.6% 0.59rem,
+    7.9% 0.81rem,
+    9.2% 0.69rem,
+    10.6% 0.15rem,
+    12.6% 1.32rem,
+    14% 0.36rem,
+    16.5% 1.52rem,
+    18.9% 0.63rem,
+    22% 0.07rem,
+    24.9% 0.46rem,
+    26.4% 0.19rem,
+    28.2% 1.31rem,
+    29.8% 0.93rem,
+    32.3% 0.6rem,
+    34.6% 0.1rem,
+    35.9% 0.33rem,
+    38.4% 0.68rem,
+    40.3% 0.94rem,
+    42.4% 0.48rem,
+    45.2% 1.12rem,
+    46.9% 0.92rem,
+    49.1% 1.4rem,
+    51.8% 0.46rem,
+    54.9% 0.19rem,
+    57% 1.21rem,
+    58.5% 0.78rem,
+    59.7% 1.07rem,
+    62.5% 0.92rem,
+    65.4% 0.5rem,
+    68% 0.95rem,
+    70.4% 0.73rem,
+    73.3% 1.51rem,
+    75.4% 1.06rem,
+    76.7% 1.12rem,
+    79.2% 1.59rem,
+    82.1% 0.46rem,
+    84% 1.07rem,
+    85.3% 0.74rem,
+    86.8% 0.19rem,
+    88.1% 1.23rem,
+    89.6% 0.4rem,
+    91.6% 1.39rem,
+    92.9% 0.72rem,
+    95.2% 1.41rem,
+    98.1% 1.38rem,
+    99.8% 0.66rem,
+    100% 1.41rem,
+    100% calc(100% - 0.8rem),
+    96.9% calc(100% - 0.24rem),
+    95.3% calc(100% - 0.37rem),
+    93.7% calc(100% - 0.78rem),
+    91.3% calc(100% - 0.42rem),
+    90.1% calc(100% - 0.67rem),
+    88.1% calc(100% - 0.91rem),
+    85% calc(100% - 1.1rem),
+    82.8% calc(100% - 0.99rem),
+    80.3% calc(100% - 0.09rem),
+    77.3% calc(100% - 1.25rem),
+    74.3% calc(100% - 1.28rem),
+    72.3% calc(100% - 0.64rem),
+    70.9% calc(100% - 1.01rem),
+    69.6% calc(100% - 0.11rem),
+    68% calc(100% - 0.26rem),
+    66.1% calc(100% - 0.08rem),
+    64.9% calc(100% - 0.24rem),
+    63.5% calc(100% - 0.58rem),
+    62.2% calc(100% - 1.4rem),
+    59.8% calc(100% - 0.24rem),
+    58.1% calc(100% - 0.56rem),
+    56.2% calc(100% - 0.2rem),
+    53.3% calc(100% - 1.59rem),
+    51.1% calc(100% - 0.77rem),
+    49.8% calc(100% - 0.16rem),
+    47.9% calc(100% - 0.42rem),
+    45% calc(100% - 0.26rem),
+    43.8% calc(100% - 1.52rem),
+    41.5% calc(100% - 0.23rem),
+    39.2% calc(100% - 0.04rem),
+    37% calc(100% - 1.57rem),
+    34.1% calc(100% - 1.11rem),
+    32.3% calc(100% - 0.59rem),
+    30.8% calc(100% - 1.24rem),
+    28.5% calc(100% - 1.25rem),
+    26.7% calc(100% - 0.36rem),
+    23.9% calc(100% - 1.58rem),
+    20.9% calc(100% - 1.29rem),
+    18.1% calc(100% - 1.18rem),
+    16.5% calc(100% - 0.83rem),
+    14.5% calc(100% - 0.05rem),
+    13.3% calc(100% - 0.45rem),
+    11.6% calc(100% - 1.11rem),
+    8.5% calc(100% - 0.72rem),
+    5.4% calc(100% - 1.58rem),
+    2.3% calc(100% - 0.58rem),
+    0.6% calc(100% - 0.36rem),
+    0% calc(100% - 0.33rem),
+    0% calc(100% - 0.8rem)
+  );
+}
+.wall::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wall > * {
+  position: relative;
+  z-index: 1;
+}
+.wall .gallery {
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 3rem 2.5rem;
+  margin: 0;
+}
+.wall .gallery img {
+  border-radius: 0;
+  box-shadow:
+    0 1px 2px rgba(29, 24, 48, 0.25),
+    0 10px 24px -8px rgba(29, 24, 48, 0.45);
+}
+.wall .gallery span {
+  color: #4a4360;
+}
+.wall .gallery .lineup {
+  color: var(--paper-ink);
+}
+.wall :focus-visible {
+  outline-color: var(--ink);
+}
+.wall a:hover {
+  color: var(--ink);
+}
+.wall a:hover strong {
+  text-decoration: underline;
+  text-decoration-color: var(--paper-ink);
+  text-decoration-thickness: 3px;
+}
+.wall .next {
+  align-self: start;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+  border: 3px dashed #8a8299;
+}
+.wall .next .next-title {
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: 2.5rem;
+  line-height: 1;
+  margin: 0 0 0.75rem;
+}
+.wall .next p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.wall .next a {
+  display: inline;
+  text-decoration: underline;
+  text-decoration-color: var(--paper-ink);
+  text-decoration-thickness: 2px;
+}
+@media (max-width: 40rem) {
+  .wall .next {
+    aspect-ratio: auto;
+  }
+}
+
+/* ---- Home: three ways in ---- */
+.paths {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  margin-top: 3rem;
+}
+.paths > div {
+  padding: 2rem 1.5rem 0 0;
+}
+.paths > div + div {
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--dusk);
+}
+.paths p {
+  margin: 0 0 0.75rem;
+  color: var(--haze);
+}
+.paths p:last-child a {
+  color: var(--paper);
+  font-weight: 600;
+}
+@media (max-width: 40rem) {
+  .paths > div + div {
+    padding-left: 0;
+    border-left: 0;
+    border-top: 2px solid var(--dusk);
+    margin-top: 2rem;
+  }
+}
+
+/* ---- About / Get involved ---- */
+.roles dt {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.roles dd {
+  margin: 0.25rem 0 0;
+  color: var(--haze);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding: 2rem var(--pad);
+  max-width: var(--wide);
+  width: 100%;
+  margin: 0 auto;
+  border-top: 2px solid var(--dusk);
+  font-size: 0.9rem;
+  color: var(--haze);
+}
+.site-footer p {
+  margin: 0;
+}
+.site-footer ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---- Language switch ---- */
+.lang-switch {
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.2rem 0.6rem;
+  border: 2px solid var(--dusk);
+  border-radius: 999px;
+}
+.lang-switch:hover {
+  border-color: var(--sun);
+}
+.site-nav {
+  margin-left: auto;
+}
+@media (max-width: 40rem) {
+  .site-nav {
+    order: 3;
+    flex-basis: 100%;
+  }
+}
+
+/* ---- Header tickets, footer wordmark, entrance ---- */
+
+/* 1. Tickets always in the header (far right). */
+.lang-switch {
+  order: 1;
+}
+.wordmark {
+  margin-right: auto;
+}
+.header-tickets {
+  order: 2;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* 2. Giant edge-to-edge wordmark closing every page. */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+.site-footer .footer-mark {
+  flex-basis: 100%;
+  margin: 2rem 0 -0.12em;
+  font-family: var(--display);
+  font-weight: 900;
+  font-size: clamp(4rem, 24.5vw, 19rem);
+  line-height: 0.8;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--dusk);
+  user-select: none;
+}
+
+/* 3. One orchestrated entrance: headline words rise, the sun disc warms up. */
+.hero-name span {
+  display: inline-block;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-name span {
+    animation: rise 0.9s cubic-bezier(0.2, 0.75, 0.2, 1) both;
+    animation-delay: calc(0.15s + var(--i) * 0.12s);
+  }
+  .hero-tagline,
+  .hero .cta {
+    animation: fade 0.6s ease both;
+    animation-delay: 0.45s;
+  }
+  body:has(.hero) .wordmark::before {
+    animation: sunrise 1.6s ease-out both;
+  }
+}
+@keyframes rise {
+  /* transform only: the headline is visible from the first frame, so it never delays paint */
+  from {
+    transform: translateY(0.35em);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes sunrise {
+  0% {
+    transform: scale(0.4);
+    box-shadow: 0 0 0 rgba(244, 229, 62, 0);
+  }
+  60% {
+    transform: scale(1.15);
+    box-shadow: 0 0 34px rgba(244, 229, 62, 0.9);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 18px rgba(244, 229, 62, 0.55);
+  }
+}

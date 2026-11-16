@@ -1,0 +1,10 @@
+{%- set t = i18n[lang] -%}
+{%- set who = e.lineup ~ (", " ~ t.hostedBy ~ e.host if e.host else "") -%}
+<li>
+  <a href="{{ e.url }}" rel="noopener">
+  {% if e.img %}<img src="{{ e.img }}" alt="{{ t.poster }} {{ e.title }}{% if who %}{{ t.colon }}{{ who }}{% endif %}, {{ e.venue }}" width="480" height="600" loading="lazy" decoding="async">{% else %}<div class="photo-placeholder" aria-hidden="true"></div>{% endif %}
+  <strong>{{ e.title }}</strong>
+  {%- if who %}<span class="lineup">{{ who }}</span>{% endif %}
+  <span>{{ e.date | showDate(t.locale) }}, {{ e.venue }}</span>
+  </a>
+</li>

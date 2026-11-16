@@ -1,0 +1,34 @@
+---
+layout: base.njk
+title: À propos
+altUrl: /about/
+permalink: /fr/a-propos/
+description: "SUNDROP est une plateforme communautaire pour les musiciens montréalais, animée par Brooke Lee. Découvre nos spectacles passés au Turbo Haüs et à La Feuille Verte, et la suite."
+---
+
+<article class="prose about">
+
+<h1>À propos</h1>
+
+<p class="lede">SUNDROP, c’est une plateforme communautaire pour les musiciens montréalais, créée et animée par <a href="https://riverleewriter.ca" rel="noopener">Brooke Lee</a>. On organise des petits concerts avec des artistes variés dans des salles et des cafés un peu partout en ville.</p>
+
+<section>
+  <h2>Prochains spectacles</h2>
+  {% if events.upcoming.length %}
+  <ul class="gallery">
+    {%- for e in events.upcoming %}{% include "poster.njk" %}{% endfor %}
+  </ul>
+  {% else %}
+  <p>Rien d’annoncé pour l’instant. Les nouveaux spectacles paraissent d’abord sur <a href="{{ events.tickets }}" rel="noopener">Bloom</a> et <a href="{{ site.instagram }}" rel="noopener">Instagram</a>.</p>
+  {% endif %}
+</section>
+
+<section>
+  <h2>Spectacles passés</h2>
+  <ul class="gallery">
+    {%- for e in events.past %}{% include "poster.njk" %}{% endfor %}
+  </ul>
+  <p>Va jeter un œil à notre page <a href="{{ site.instagram }}" rel="noopener">Instagram</a> pour voir des photos et des Reels.</p>
+</section>
+
+</article>

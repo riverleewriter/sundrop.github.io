@@ -1,0 +1,46 @@
+---
+layout: base.njk
+altUrl: /fr/
+title: null
+description: "SUNDROP puts on live music shows around Montreal: punk matinees, folk and jazz nights, poetry and more. Get tickets or apply to play."
+---
+
+<section class="hero">
+  <div class="hero-text">
+    {% include "hero-title.njk" %}
+    <p class="hero-tagline">Punk matinees, folk and jazz nights, poetry with a backbeat. SUNDROP puts Montreal musicians in  rooms full of people who come to listen.</p>
+    <p class="cta">
+      <a class="button" href="{{ events.tickets }}" rel="noopener">Get tickets</a>
+      <a class="button button-ghost" href="/book/">Play a show</a>
+    </p>
+  </div>
+</section>
+
+<section class="wall">
+  <h2>Shows</h2>
+  <ul class="gallery">
+    {%- for e in events.upcoming %}{% include "poster.njk" %}{% endfor %}
+    {%- for e in events.past %}{% include "poster.njk" %}{% endfor %}
+    {%- if not events.upcoming.length %}
+    {% include "next-card.njk" %}
+    {%- endif %}
+  </ul>
+</section>
+
+<section class="paths">
+  <div>
+    <h2>Come to a show</h2>
+    <p>Click on the show poster to get your ticket. Grab yours on Bloom before the room fills.</p>
+    <p><a href="{{ events.tickets }}" rel="noopener">See upcoming shows</a></p>
+  </div>
+  <div>
+    <h2>Play a show</h2>
+    <p>Looking to book a gig? Send us a link to your music and we'll find you a bill that fits.</p>
+    <p><a href="/book/">Book a gig</a></p>
+  </div>
+  <div>
+    <h2>Help out</h2>
+    <p>We can always use a hand. Every volunteer gets into a show on us.</p>
+    <p><a href="/get-involved/">Get involved</a></p>
+  </div>
+</section>
