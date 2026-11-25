@@ -225,8 +225,9 @@ h2 {
   .hero {
     min-height: 34rem;
     background:
-      linear-gradient(0deg, rgba(23, 17, 46, 0.95) 35%, rgba(23, 17, 46, 0.1)),
-      url("/img/hero-900.jpg") 35% center / cover no-repeat;
+      linear-gradient(0deg, rgb(23, 17, 46) 45%, rgba(23, 17, 46, 0.1)),
+      url("/img/hero-900.jpg") 35% -92px / 170% auto no-repeat;
+    background-color: rgb(23, 17, 46);
   }
 }
 
@@ -488,6 +489,11 @@ h2 {
   text-decoration-color: var(--paper-ink);
   text-decoration-thickness: 2px;
 }
+@media (min-width: 48rem) {
+  .wall .gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 @media (max-width: 40rem) {
   .wall .next {
     aspect-ratio: auto;
@@ -502,6 +508,13 @@ h2 {
 }
 .paths > div {
   padding: 2rem 1.5rem 0 0;
+  display: grid;
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+}
+.paths h2 {
+  align-self: end;
 }
 .paths > div + div {
   padding-left: 1.5rem;
@@ -580,6 +593,11 @@ h2 {
   .site-nav {
     order: 3;
     flex-basis: 100%;
+  }
+  .site-nav ul {
+    justify-content: space-between;
+    column-gap: 0.6rem;
+    font-size: 0.9rem;
   }
 }
 

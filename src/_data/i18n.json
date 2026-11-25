@@ -12,6 +12,10 @@
         "url": "/about/"
       },
       {
+        "label": "Mission",
+        "url": "/mission/"
+      },
+      {
         "label": "Book a Gig",
         "url": "/book/"
       },
@@ -40,11 +44,15 @@
     "homeTitle": "SUNDROP",
     "skip": "Aller au contenu",
     "homeLabel": "Accueil SUNDROP",
-    "navLabel": "Principal",
+    "navLabel": "Navigation principale",
     "nav": [
       {
         "label": "À propos",
         "url": "/fr/a-propos/"
+      },
+      {
+        "label": "Mission",
+        "url": "/fr/mission/"
       },
       {
         "label": "Jouer avec nous",

@@ -2,14 +2,18 @@
 layout: base.njk
 altUrl: /fr/a-propos/
 title: About
-description: "SUNDROP is a community platform for Montreal musicians, hosted by Brooke Lee. See past shows at Turbo Haüs and La Feuille Verte, and what's next."
+description: "SUNDROP is a community platform for Montreal musicians. See past shows at Turbo Haüs and La Feuille Verte, and what's next."
 ---
 
 <article class="prose about">
 
 <h1>About</h1>
 
-<p class="lede">SUNDROP is a community platform for Montreal musicians, produced and hosted by <a href="https://riverleewriter.ca" rel="noopener">Brooke Lee</a>. We book small, mixed bills in venues and cafés around the city.</p>
+<p class="lede">SUNDROP is a community platform for Montreal musicians. We book small mixed bills in venues and cafés around the city.</p>
+
+<p class="lede">Whether you're just starting out, dusting off your guitar after many years, or playing in a new band for the first time, we're here to cheer you on as you launch into live music performance.</p>
+
+<p class="lede">We also book ticketed shows for experienced musicians, offering our platform to artists at various stages in their career.</p>
 
 <section>
   <h2>Upcoming shows</h2>
