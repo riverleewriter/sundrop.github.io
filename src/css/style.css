@@ -183,6 +183,15 @@ h2 {
     linear-gradient(90deg, rgba(23, 17, 46, 0) 30%, rgba(23, 17, 46, 0.75) 75%),
     linear-gradient(0deg, rgba(23, 17, 46, 0.9), rgba(23, 17, 46, 0) 45%),
     url("/img/hero-1600.jpg") 30% center / cover no-repeat;
+  /* WebP where supported; the JPEG line above is the fallback. */
+  background:
+    linear-gradient(90deg, rgba(23, 17, 46, 0) 30%, rgba(23, 17, 46, 0.75) 75%),
+    linear-gradient(0deg, rgba(23, 17, 46, 0.9), rgba(23, 17, 46, 0) 45%),
+    image-set(
+        url("/img/hero-1600.webp") type("image/webp"),
+        url("/img/hero-1600.jpg") type("image/jpeg")
+      )
+      30% center / cover no-repeat;
   border-radius: 6px;
 }
 /* Landscape screens: zoom the photo so the mic sits ~25% across, clear of the one-line headline.
@@ -227,6 +236,13 @@ h2 {
     background:
       linear-gradient(0deg, rgb(23, 17, 46) 45%, rgba(23, 17, 46, 0.1)),
       url("/img/hero-900.jpg") 35% -92px / 170% auto no-repeat;
+    background:
+      linear-gradient(0deg, rgb(23, 17, 46) 45%, rgba(23, 17, 46, 0.1)),
+      image-set(
+          url("/img/hero-900.webp") type("image/webp"),
+          url("/img/hero-900.jpg") type("image/jpeg")
+        )
+        35% -92px / 170% auto no-repeat;
     background-color: rgb(23, 17, 46);
   }
 }

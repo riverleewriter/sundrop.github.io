@@ -15,8 +15,8 @@
   <meta name="theme-color" content="#17112e">
   <link rel="stylesheet" href="/css/style.css">
   {%- if page.url == t.home %}
-  <link rel="preload" as="image" href="/img/hero-900.jpg" media="(max-width: 40rem)">
-  <link rel="preload" as="image" href="/img/hero-1600.jpg" media="(min-width: 40.01rem)">
+  <link rel="preload" as="image" href="/img/hero-900.webp" type="image/webp" media="(max-width: 40rem)" fetchpriority="high">
+  <link rel="preload" as="image" href="/img/hero-1600.webp" type="image/webp" media="(min-width: 40.01rem)" fetchpriority="high">
   {%- endif %}
 </head>
 <body>
@@ -32,7 +32,7 @@
     </nav>
     <a class="button header-tickets" href="{{ events.tickets }}" rel="noopener">{{ t.tickets }}</a>
     {%- if altUrl %}
-    <a class="lang-switch" href="{{ altUrl }}" hreflang="{{ t.switchLang }}" lang="{{ t.switchLang }}" aria-label="{{ t.switchName }}">{{ t.switchLabel }}</a>
+    <a class="lang-switch" href="{{ altUrl }}" hreflang="{{ t.switchLang }}" lang="{{ t.switchLang }}" aria-label="{{ t.switchLabel }}, {{ t.switchName }}">{{ t.switchLabel }}</a>
     {%- endif %}
   </header>
 

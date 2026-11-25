@@ -2,7 +2,7 @@ module.exports = function (eleventyConfig) {
   // Copy static assets straight through to the build output.
   eleventyConfig.addPassthroughCopy("src/css");
   // Only the web-sized images; full-size originals stay in the repo but are not published.
-  eleventyConfig.addPassthroughCopy("src/img/*-{sm,900,1600}.jpg");
+  eleventyConfig.addPassthroughCopy("src/img/*-{sm,900,1600}.{jpg,webp}");
   eleventyConfig.addPassthroughCopy("src/fonts");
   eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/favicon.svg");
